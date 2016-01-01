@@ -1,0 +1,52 @@
+{
+  "name": "gitbook-plugin-chatlog",
+  "description": "Formatted chat logs for GitBook",
+  "keywords": [
+    "gitbook",
+    "gitbook-plugin",
+    "chat",
+    "quote"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "engines": {
+    "gitbook": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/claylo/gitbook-plugin-chatlog.git"
+  },
+  "author": "Clay Loveless <clay@loveless.net> (http://about.me/claylo)",
+  "dependencies": {
+    "cheerio": "^0.19.0"
+  },
+  "bugs": {
+    "url": "https://github.com/claylo/gitbook-plugin-chatlog/issues"
+  },
+  "homepage": "https://github.com/claylo/gitbook-plugin-chatlog#readme",
+  "scripts": {
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "ava"
+  },
+  "devDependencies": {
+    "@semantic-release/release-notes-generator": "^2.0.0",
+    "ava": "^0.9.1",
+    "cz-conventional-changelog": "^1.1.5",
+    "ghooks": "^1.0.1",
+    "semantic-release": "^4.3.5",
+    "validate-commit-msg": "^1.0.0"
+  },
+  "xo": {
+    "space": 2,
+    "envs": [
+      "node"
+    ]
+  },
+  "config": {
+    "ghooks": {
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+/* Hat tip to http://codepen.io/jokeyrhyme/pen/dAwet/ */
+.chatlog {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.chatlog .chatlog__entry {
+  margin: .5em;
+}
+
+.chatlog__entry {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  max-width: 85%;
+}
+
+.chatlog__entry.chatlog__entry_flip {
+  flex-direction: row-reverse;  
+}
+
+.chatlog__avatar {
+  flex-shrink: 0;
+  flex-grow: 0;
+  z-index: 1;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+
+.chatlog__entry .chatlog__message {
+  position: relative;
+  margin: 0 12px;
+}
+
+.chatlog__entry .chatlog__message::before {
+  position: absolute;
+  right: auto;
+  bottom: .6em;
+  left: -12px;
+  height: 0;
+  content: '';
+  border: 6px solid transparent;
+  border-right-color: #ddd;
+  z-index: 2;
+}
+
+.chatlog__entry.chatlog__entry_flip .chatlog__message::before {
+  right: -12px;
+  bottom: .6em;
+  left: auto;
+  border: 6px solid transparent;
+  border-left-color: #08f;
+}
+
+.chatlog__message {
+  background-color: #ddd;
+  padding: .5em;
+  border-radius: 4px;
+  max-width: 70%;
+  font-size: 14px;
+  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-smooth: always;
+}
+
+.chatlog__message .chatlog__timestamp {
+  display: none;
+}
