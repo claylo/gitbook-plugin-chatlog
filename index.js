@@ -33,7 +33,12 @@ module.exports = {
             + 'border: 6px solid transparent; border-left-color: ' + users[username]['balloon'] + '}' + "\n";
         }
 
-        return '<style>' + istyle + '</style><ul class="chatlog">';
+        var datehead = '';
+        if (blk.kwargs['date']) {
+          datehead = '<div class="chatlog__head"><span>' + blk.kwargs['date'] + '</span></div>';
+        }
+
+        return '<style>' + istyle + '</style>' + datehead + '<ul class="chatlog">';
       }
     },
     msg: {
@@ -45,7 +50,13 @@ module.exports = {
         }
         liclass += ' ' + username;
         var out = '<li class="' + liclass + '">';
+        if (blk.kwargs['time']) {
+          out += '<a href="#" data-timetip="' + blk.kwargs['time'] + '">';
+        }
         out += '<img class="chatlog__avatar" src="/chatlog/' + username + '.jpg" />';
+        if (blk.kwargs['time']) {
+          out += '</a>';
+        }
         out += '<p class="chatlog__message">' + blk.body + '</p></li>';
         return out;
       }

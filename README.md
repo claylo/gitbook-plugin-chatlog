@@ -3,19 +3,20 @@
 Easily format a chat exchange in your book.
 
 ```
-{% chathead %}{% endchathead %}
+{% chathead date="12/31/15" %}{% endchathead %}
 
-{% msg from="mojombo", date="12/31/15" %}
+{% msg from="mojombo", time="05:59:01pm PST" %}
 Mmmm. Chat.
 {% endmsg %}
 
-{% msg from="claylo", date="12/31/15" %}
+{% msg from="claylo", time="05:59:20pm PST" %}
 yeah, man.
 {% endmsg %}
 
 {% chatfoot %}{% endchatfoot %}
 ```
 
+![Preview of chatlog](screencap.png)
 
 ## Installation
 
