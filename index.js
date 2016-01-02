@@ -4,6 +4,11 @@ var cheerio = require('cheerio');
 var users = {};
 var alternate = false;
 
+var options = {
+  'chathead-date-prefix': '<div class="chatlog__head"><span>',
+  'chathead-date-suffix': '</span></div>'
+};
+
 module.exports = {
   book: {
     assets: './book',
@@ -35,7 +40,11 @@ module.exports = {
 
         var datehead = '';
         if (blk.kwargs['date']) {
-          datehead = '<div class="chatlog__head"><span>' + blk.kwargs['date'] + '</span></div>';
+
+          var prefix = options['chathead-date-prefix'].replace('{NL}', "\n");
+          var suffix = options['chathead-date-suffix'].replace(/{NL}/g, "\n");
+
+          datehead = prefix + blk.kwargs['date'] + suffix;
         }
 
         return '<style>' + istyle + '</style>' + datehead + '<ul class="chatlog">';
@@ -43,13 +52,19 @@ module.exports = {
     },
     msg: {
       process: function(blk) {
+        var out = '';
+        // assumes time is also set!
+        if (blk.kwargs['time'] && blk.args.indexOf('showgap') > -1) {
+          out += '<li class="chatlog__time_gap">' + blk.kwargs['time'] + '</li>';
+        }
+
         var username = blk.kwargs['from'];
         var liclass = 'chatlog__entry';
         if (alternate === true && users[username]['even'] === false) {
           liclass += ' chatlog__entry_flip';
         }
         liclass += ' ' + username;
-        var out = '<li class="' + liclass + '">';
+        out += '<li class="' + liclass + '">';
         if (blk.kwargs['time']) {
           out += '<a href="#" data-timetip="' + blk.kwargs['time'] + '">';
         }
@@ -74,6 +89,14 @@ module.exports = {
     init: function() {
       if (this.options.pluginsConfig && this.options.pluginsConfig.chatlog) {
         var chatlog = this.options.pluginsConfig.chatlog;
+
+        if (chatlog['chathead-date-prefix']) {
+          options['chathead-date-prefix'] = chatlog['chathead-date-prefix'];
+        }
+        if (chatlog['chathead-date-suffix']) {
+          options['chathead-date-suffix'] = chatlog['chathead-date-suffix'];
+        }
+
         users = chatlog['users'];
         var i = 0;
         for (var username in users) {

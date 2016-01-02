@@ -3,6 +3,13 @@ ul.chatlog {
   list-style: none;
 }
 
+.chatlog__time_gap {
+  width: 100%;
+  text-align: center;
+  color: #778899;
+  font-weight: bold;
+}
+
 .chatlog__head {
   width: 100%;
   margin: 0 auto;

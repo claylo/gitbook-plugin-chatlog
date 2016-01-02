@@ -48,5 +48,23 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "gitbook": {
+    "properties": {
+      "chathead-date-prefix": {
+        "type": "string",
+        "title": "HTML to preceed value of 'date' in chathead block.",
+        "default": "<div class=\"chatlog__head\"><span>"
+      },
+      "chathead-date-suffix": {
+        "type": "string",
+        "title": "HTML to follow value of 'date' in chathead block.",
+        "default": "</span></div>"
+      },
+      "users": {
+        "type": "object",
+        "title": "Per-user configuration for chat participants."
+      }
+    }
   }
 }
