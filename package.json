@@ -18,36 +18,26 @@
   },
   "author": "Clay Loveless <clay@loveless.net> (http://about.me/claylo)",
   "dependencies": {
-    "cheerio": "^0.19.0"
+    "cheerio": "^1.0.0-rc.3"
   },
   "bugs": {
     "url": "https://github.com/claylo/gitbook-plugin-chatlog/issues"
   },
   "homepage": "https://github.com/claylo/gitbook-plugin-chatlog#readme",
   "scripts": {
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "ava"
+    "test": "ava",
+    "report-coverage": "nyc report --reporter=text-lcov | coveralls && nyc report --reporter=text-lcov",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "semantic-commit": "commit"
   },
   "devDependencies": {
-    "@semantic-release/release-notes-generator": "^2.0.0",
-    "ava": "^0.9.1",
-    "cz-conventional-changelog": "^1.1.5",
-    "ghooks": "^1.0.1",
-    "semantic-release": "^4.3.5",
-    "validate-commit-msg": "^1.0.0"
-  },
-  "xo": {
-    "space": 2,
-    "envs": [
-      "node"
-    ]
-  },
-  "config": {
-    "ghooks": {
-    },
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
+    "@commitlint/prompt-cli": "^8.2.0",
+    "ava": "2.4.0",
+    "coveralls": "^3.0.6",
+    "nyc": "^14.1.1",
+    "semantic-release": "^15.13.24"
   },
   "gitbook": {
     "properties": {
