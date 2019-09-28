@@ -1,5 +1,7 @@
 # gitbook-plugin-chatlog
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/claylo/gitbook-plugin-chatlog.svg)](https://greenkeeper.io/)
+
 Easily format a chat exchange in your book.
 
 ```
