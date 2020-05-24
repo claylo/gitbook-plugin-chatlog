@@ -37,7 +37,7 @@
     "ava": "3.0.0",
     "coveralls": "^3.0.6",
     "nyc": "^14.1.1",
-    "semantic-release": "^16.0.0"
+    "semantic-release": "^17.0.8"
   },
   "gitbook": {
     "properties": {
